@@ -11,14 +11,17 @@ import { MatCardModule } from '@angular/material/card';
 import {MatSelectModule} from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
 import { ReservationFormComponent } from './components/reservation-form/reservation-form.component';
-
+import {MatDialogModule} from '@angular/material/dialog';
+import { ConfirmationModalComponent } from './components/confirmation-modal/confirmation-modal.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     TablesMenuComponent,
-    ReservationFormComponent
+    ReservationFormComponent,
+    ConfirmationModalComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +29,9 @@ import { ReservationFormComponent } from './components/reservation-form/reservat
     BrowserAnimationsModule,
     MatCardModule,
     MatSelectModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

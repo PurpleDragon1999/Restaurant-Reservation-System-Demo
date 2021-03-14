@@ -1,5 +1,26 @@
-<div>
-    <form>
+<div class="d-flex flex-row justify-content-center align-items-center h-100">
+    <form [formGroup]="reservationform" (ngSubmit)="saveReservation()" class="d-flex flex-column justify-content-center w-25">
+        <label class="w-100 my-2">
+            <input type="text" formControlName="table" [ngClass]="{ 'is-invalid': f.table.invalid && f.table.dirty }" disabled=true class="px-3 py-2 w-100">
+            <div *ngIf="f.table.invalid && f.table.dirty" class="invalid-feedback">
+                <div *ngIf="f.table.errors.required">Field cannot be Empty</div>
+            </div>
+        </label>
         
+        <label class="w-100 my-2">
+            <input type="time" formControlName="start_slot" [ngClass]="{ 'is-invalid': f.start_slot.invalid }" class="px-3 py-2 w-100" min="10:00" max="23:00" required>
+            <div *ngIf="f.start_slot.invalid && f.start_slot.dirty || submitted" class="invalid-feedback">
+                <div *ngIf="f.start_slot.errors?.required">Field cannot be Empty</div>
+            </div>
+        </label>
+
+        <label class="w-100 my-2">
+            <input type="time" formControlName="end_slot" [ngClass]="{ 'is-invalid': f.end_slot.invalid }" class="px-3 py-2 w-100" min="10:00" max="23:00" required>
+            <div *ngIf="f.end_slot.invalid && f.end_slot.dirty || submitted" class="invalid-feedback">
+                <div *ngIf="f.end_slot.errors?.required">Field cannot be Empty</div>
+            </div>
+        </label>
+        
+        <button type="submit" class="btn btn-sm bg-primary rounded-pill text-white py-2">Book Table</button>
     </form>
 </div>
