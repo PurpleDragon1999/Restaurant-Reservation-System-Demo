@@ -1,0 +1,29 @@
+<div class="m-3 p-3">
+    <div class="d-flex flex-row justify-content-center mb-4">
+        <div class="d-flex flex-column justify-content-center me-3 filter rounded-circle">
+            <i class="fas fa-filter"></i>
+        </div>
+        
+        <mat-form-field appearance="fill" class="me-3">
+            <mat-label>Select Table Size</mat-label>
+            <mat-select [(ngModel)]="size" (selectionChange)="sizeChanged($event)">
+                <mat-option value="2">2</mat-option>
+                <mat-option value="3">3</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <input type="time" [(ngModel)]="time" (ngModelChange)="timeChanged($event)" class="rounded-pill px-2">
+    </div>
+    <div class="row">
+        <div *ngFor="let table of data" class="col-md-3">
+            <mat-card class="shadow-sm rounded">
+                <mat-card-header class="d-flex justify-content-center">
+                    <mat-card-title class="mb-0" style="font-size: 3rem;">{{ table.table_size }}</mat-card-title>
+                    <mat-card-subtitle>Seats</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <p>{{ table.location }} Table</p>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
